@@ -2,6 +2,12 @@
   "compilerOptions": {
     "jsx": "react-jsx",    
     "baseUrl": ".", 
+     "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "paths": {
       "@/*": ["src/*"]
     }
