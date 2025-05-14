@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/store/store";
-import { sendPasswordResetLink } from "@/features/auth/authslice";
+// import { sendPasswordResetLink } from "@/features/auth/authslice";
 import { Link } from "react-router-dom";
 
 export default function ForgotPasswordPage() {
@@ -12,12 +12,11 @@ export default function ForgotPasswordPage() {
   });
 
   const onSubmit = (data: { email: string }) => {
-    dispatch(sendPasswordResetLink(data.email));
+    // dispatch(sendPasswordResetLink(data.email));
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-200 px-4">
-      <div className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 sm:p-10">
+    <>
         <div className="flex flex-col items-center mb-6">
           <div className="w-16 h-16 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-3xl font-bold shadow-md mb-2">
             🔑
@@ -54,7 +53,7 @@ export default function ForgotPasswordPage() {
             Login
           </Link>
         </p>
-      </div>
-    </div>
+        </>
+      
   );
 }
