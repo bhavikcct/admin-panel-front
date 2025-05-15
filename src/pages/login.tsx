@@ -1,14 +1,15 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
-// import { login } from "@/features/auth/authslice";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginFormData, loginschema } from "@/validation/authvalidationschema";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthSlice, setToken } from "@/features/auth/authslice";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 export default function LoginPage() {
+  const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
   const { status, error } = useSelector((state: RootState) => state.auth);
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ export default function LoginPage() {
   const onSubmit = async (data: LoginFormData) => {
     try {
       const response = await dispatch(loginThunk(data));
-      toast.success("Login successful");
+      toast.success(t("login.success"));
       if (response?.token) {
         localStorage.setItem("token", response?.token);
         dispatch(setToken(response?.token));
@@ -42,14 +43,17 @@ export default function LoginPage() {
         <div className="w-16 h-16 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-3xl font-bold shadow-md mb-2">
           🔒
         </div>
-        <h2 className="text-2xl font-extrabold text-gray-800">Welcome Back</h2>
-        <p className="text-gray-500 text-sm">Please log in to your account</p>
+        <h2 className="text-2xl font-extrabold text-gray-800">
+          {t("login.title")}
+        </h2>
+        <p className="text-gray-500 text-sm">{t("login.subtitle")}</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Email */}
         <div>
-          <label className="block text-gray-700 text-sm mb-1">Email</label>
+          <label className="block text-gray-700 text-sm mb-1">
+            {t("login.email")}
+          </label>
           <input
             {...register("email")}
             className="w-full border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 p-3 rounded-xl outline-none transition"
@@ -61,9 +65,10 @@ export default function LoginPage() {
           )}
         </div>
 
-        {/* Password */}
         <div>
-          <label className="block text-gray-700 text-sm mb-1">Password</label>
+          <label className="block text-gray-700 text-sm mb-1">
+            {t("login.password")}
+          </label>
           <input
             {...register("password")}
             className="w-full border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 p-3 rounded-xl outline-none transition"
@@ -80,7 +85,7 @@ export default function LoginPage() {
               to="/forgot-password"
               className="text-sm text-blue-600 hover:underline"
             >
-              Forgot Password?
+              {t("login.forgot_password")}
             </Link>
           </div>
         </div>
@@ -90,21 +95,21 @@ export default function LoginPage() {
           disabled={status === "loading"}
           className="w-full cursor-pointer bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition disabled:opacity-50"
         >
-          {status === "loading" ? "Logging in..." : "Login"}
+          {status === "loading"
+            ? t("login.logging_in")
+            : t("login.login_button")}
         </button>
 
-        {/* Error */}
         {error && <p className="text-red-500 text-sm text-center">{error}</p>}
       </form>
 
-      {/* Register link */}
       <p className="text-sm text-center text-gray-600 mt-6">
-        Don’t have an account?{" "}
+        {t("login.register_prompt")}{" "}
         <Link
           to="/register"
           className="text-blue-600 font-medium hover:underline"
         >
-          Register
+          {t("login.register_link")}
         </Link>
       </p>
     </>

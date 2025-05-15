@@ -8,8 +8,10 @@ import {
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { toast } from "react-toastify";
 import { AuthSlice, selectAuth } from "@/features/auth/authslice";
+import { useTranslation } from "react-i18next";
 
 export default function RegisterPage() {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -22,12 +24,11 @@ export default function RegisterPage() {
   const { registerthunk } = AuthSlice();
   const { status, error } = useAppSelector(selectAuth);
 
-
   const onSubmit = async (data: RegisterFormData) => {
     try {
-       const response = await dispatch(registerthunk(data));
-       if(!response?.message)  return;
-      toast.success(response?.message);
+      const response = await dispatch(registerthunk(data));
+      if (!response?.message) return;
+      toast.success(t("register.success"));
       navigate("/login");
     } catch (error: any) {
       toast.error(error);
@@ -41,16 +42,16 @@ export default function RegisterPage() {
           📝
         </div>
         <h2 className="text-2xl font-extrabold text-gray-800">
-          Create Account
+          {t("register.title")}
         </h2>
-        <p className="text-gray-500 text-sm">Register to get started</p>
+        <p className="text-gray-500 text-sm">{t("register.subtitle")}</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           <div>
             <label className="block text-gray-700 text-sm mb-1">
-              Full Name
+              {t("register.name")}
             </label>
             <input
               {...register("name")}
@@ -64,7 +65,9 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm mb-1">Email</label>
+            <label className="block text-gray-700 text-sm mb-1">
+              {t("register.email")}
+            </label>
             <input
               {...register("email")}
               type="email"
@@ -81,7 +84,9 @@ export default function RegisterPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           <div>
-            <label className="block text-gray-700 text-sm mb-1">Password</label>
+            <label className="block text-gray-700 text-sm mb-1">
+              {t("register.password")}
+            </label>
             <input
               {...register("password")}
               type="password"
@@ -97,7 +102,7 @@ export default function RegisterPage() {
 
           <div>
             <label className="block text-gray-700 text-sm mb-1">
-              Confirm Password
+              {t("register.confirm_password")}
             </label>
             <input
               {...register("confirmPassword")}
@@ -114,20 +119,24 @@ export default function RegisterPage() {
         </div>
 
         <button
-  type="submit"
-  disabled={status === "loading"}
-  className={`w-full cursor-pointer text-white py-3 rounded-xl font-semibold transition ${
-    status === "loading" ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
-  }`}
->
-  {status === "loading" ? "Registering..." : "Register"}
-</button>
+          type="submit"
+          disabled={status === "loading"}
+          className={`w-full cursor-pointer text-white py-3 rounded-xl font-semibold transition ${
+            status === "loading"
+              ? "bg-blue-400 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700"
+          }`}
+        >
+          {status === "loading"
+            ? t("register.registering")
+            : t("register.register_button")}
+        </button>
       </form>
 
       <p className="text-sm text-center text-gray-600 mt-6">
-        Already have an account?{" "}
+        {t("register.login_prompt")}{" "}
         <Link to="/login" className="text-blue-600 font-medium hover:underline">
-          Login
+          {t("register.login_link")}
         </Link>
       </p>
     </>

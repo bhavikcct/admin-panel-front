@@ -1,0 +1,51 @@
+{
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Please log in to your account",
+      "email": "Email",
+      "password": "Password",
+      "forgot_password": "Forgot Password?",
+      "login_button": "Login",
+      "logging_in": "Logging in...",
+      "register_prompt": "Don’t have an account?",
+      "register_link": "Register",
+      "success": "Login successful"
+    },
+    "register": {
+        "title": "Create Account",
+        "subtitle": "Register to get started",
+        "name": "Full Name",
+        "email": "Email",
+        "password": "Password",
+        "confirm_password": "Confirm Password",
+        "register_button": "Register",
+        "registering": "Registering...",
+        "login_prompt": "Already have an account?",
+        "login_link": "Login",
+        "success": "Registration successful"
+      },
+      "forgot": {
+        "title": "Forgot Password?",
+        "subtitle": "Enter your email to receive a password reset link.",
+        "email": "Email",
+        "email_placeholder": "you@example.com",
+        "send_button": "Send Reset Link",
+        "sending": "Sending...",
+        "success": "Password reset link sent!",
+        "login_prompt": "Remembered your password?",
+        "login_link": "Login"
+      },
+      "reset": {    
+        "title": "Reset Password",
+        "new_password": "New Password",
+        "new_password_placeholder": "Enter new password",
+        "confirm_password": "Confirm Password",
+        "confirm_password_placeholder": "Confirm new password",
+        "submit_button": "Reset Password",
+        "submitting": "Resetting...",
+        "invalid_token": "Invalid token. Please try again."
+      }
+  }
+  
+  
+  

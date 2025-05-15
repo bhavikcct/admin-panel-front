@@ -1,0 +1,49 @@
+{
+  "login": {
+    "title": "Bon retour",
+    "subtitle": "Veuillez vous connecter à votre compte",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "forgot_password": "Mot de passe oublié ?",
+    "login_button": "Se connecter",
+    "logging_in": "Connexion...",
+    "register_prompt": "Vous n’avez pas de compte ?",
+    "register_link": "S'inscrire",
+    "success": "Connexion réussie"
+  },
+
+  "register": {
+    "title": "Créer un compte",
+    "subtitle": "Inscrivez-vous pour commencer",
+    "name": "Nom complet",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "confirm_password": "Confirmer le mot de passe",
+    "register_button": "S'inscrire",
+    "registering": "Inscription...",
+    "login_prompt": "Vous avez déjà un compte ?",
+    "login_link": "Connexion",
+    "success": "Inscription réussie"
+  },
+  "forgot": {
+    "title": "Mot de passe oublié ?",
+    "subtitle": "Entrez votre e-mail pour recevoir un lien de réinitialisation.",
+    "email": "E-mail",
+    "email_placeholder": "vous@exemple.com",
+    "send_button": "Envoyer le lien",
+    "sending": "Envoi...",
+    "success": "Lien de réinitialisation envoyé !",
+    "login_prompt": "Vous vous souvenez de votre mot de passe ?",
+    "login_link": "Se connecter"
+  },
+  "reset": {
+    "title": "Réinitialiser le mot de passe",
+    "new_password": "Nouveau mot de passe",
+    "new_password_placeholder": "Entrez un nouveau mot de passe",
+    "confirm_password": "Confirmer le mot de passe",
+    "confirm_password_placeholder": "Confirmez le nouveau mot de passe",
+    "submit_button": "Réinitialiser le mot de passe",
+    "submitting": "Réinitialisation...",
+    "invalid_token": "Jeton invalide. Veuillez réessayer."
+  }
+}
