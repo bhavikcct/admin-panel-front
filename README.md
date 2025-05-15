@@ -1,54 +1,67 @@
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+# Admin Panel Frontend
+ 
+This is a React-based admin panel built using [Vite](https://vitejs.dev/), styled with [Tailwind CSS](https://tailwindcss.com/), and powered by [Redux Toolkit](https://redux-toolkit.js.org/) and [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) for state management and API calls. Axios is used for custom API interactions where necessary.
+ 
+## 📁 Project Structure
+ 
+    admin-panel-front/
+    ├── node_modules/
+    ├── public/
+    └── src/
+    ├── assets/ # Static assets like images, icons, etc.
+    ├── components/ # Shared reusable UI components
+    ├── features/ # Redux slices and RTK Query endpoints
+    ├── layout/ # Layout components (e.g., sidebar, header)
+    ├── pages/ # Page components (e.g., login, dashboard)
+    ├── store/ # Redux store setup
+    ├── utils/ # Utility functions/helpers
+    ├── validation/ # Form validations
+    ├── App.js / App.tsx # App root component
+    ├── i18n.ts # Internationalization config (auth module only)
+    ├── index.css # Global styles
+    ├── main.tsx / main.js # Entry point
+    └── vite-env.d.ts # Type declarations for Vite
+ 
+ 
+## 🚀 Features
+ 
+- ⚡ **Vite** - Fast build and dev environment
+- 🎨 **Tailwind CSS** - Utility-first CSS framework
+- 🧠 **Redux Toolkit** - Scalable and efficient state management
+- 🌐 **RTK Query** - Data fetching and caching
+- 📦 **Axios** - Custom API calls
+- 🌍 **i18n** - Internationalization (implemented in Auth module only)
+- 🔐 **Authentication** - Login, registration,forgot password,reset password etc.
+- 📁 **Projects & Estimations** - Fully implemented and connected with backend
+- 📊 **Static Dashboard** - Mock metrics display
+ 
+## 🧩 Modules
+ 
+- ✅ Authentication (with i18n)
+- ✅ Projects
+- ✅ Estimations
+- ✅ Dashboard (static)
+ 
+> ⚠️ Internationalization is only implemented in the **Auth** module due to time constraints.
+ 
+## 🛠️ Getting Started
+ 
+### Prerequisites
+ 
+- Node.js >= 18
+- pnpm / npm / yarn
+ 
+### Installation
+ 
+```bash
+npm install
+ 
+### Run Locally
+ 
+```bash
+npm run dev
+ 
+### Build for Production
+ 
+```bash
+npm run build
